@@ -1,0 +1,53 @@
+name: "main"
+instances {
+  id: "spawnPoint"
+  prototype: "/assets/gameObjects/spawnPoint.go"
+  position {
+    x: 457.0
+    y: 477.0
+    z: 0.5
+  }
+}
+scale_along_z: 0
+embedded_instances {
+  id: "table"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"table\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/main/test.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 450.0
+    y: 300.0
+  }
+  scale3 {
+    x: 0.223166
+    y: 0.301894
+  }
+}
+embedded_instances {
+  id: "background"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"back\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/main/test.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 510.0
+    y: 355.0
+  }
+}

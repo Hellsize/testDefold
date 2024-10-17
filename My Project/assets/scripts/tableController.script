@@ -1,0 +1,36 @@
+go.property("spawn_delay", 3)
+local function spawnCat()
+	local animal = factory.create("#animalFactory")
+	
+	msg.post(animal, "spawn_point") 
+end 
+
+function init(self)
+	self.timer = self.spawn_delay
+	self.is_ocuppied = false
+	self.timer_running = true 	
+end
+
+
+function update(self, dt)
+	if self.timer_running then 
+		self.timer = self.timer - dt
+		if self.timer <= 0 and not self.is_ocuppied  then 
+			spawnCat()
+			self.timer_running = false
+			self.is_ocuppied = true 
+		end
+	end
+end
+
+
+
+
+function on_message(self, message_id, message, sender) 
+	if message_id == hash("change_value") then 
+		self.is_ocuppied = not self.is_ocuppied
+		self.timer  = self.spawn_delay 
+		self.timer_running = true 
+	end
+
+end
